@@ -1,5 +1,6 @@
 require "bundler/setup"
 require "mastermind"
+require_relative "../lib/mastermind.rb"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
