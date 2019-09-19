@@ -4,7 +4,7 @@ module Mastermind
 
         attr_accessor :solution
 
-        def initialize(solution = generate_code)
+        def initialize(solution = default_secret_code)
             @solution = solution
         end
 
@@ -13,6 +13,10 @@ module Mastermind
         def generate_code
             colors = %w(red orange yellow green blue indigo violet)
             colors.shuffle.pop(4)
+        end
+
+        def default_secret_code
+            Array.new(4) { Peg.new }
         end
 
 

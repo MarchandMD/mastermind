@@ -5,9 +5,9 @@ module Mastermind
     RSpec.describe SecretCode do
 
         context "#initialize" do
-          it "creates a new SecretCode object with a secret code by default" do
+          it "responds to #solution" do
             new_code = SecretCode.new
-            expect(new_code.solution).to_not be false
+            expect(new_code).to respond_to(:solution)
           end
 
           it "can accept a user-supplied parameter" do
