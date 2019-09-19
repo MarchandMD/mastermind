@@ -37,6 +37,11 @@ module Mastermind
                     expect(possible_colors.include?(x)).to be true
                 end
             end
+
+            it "has 4 unique elements; no duplicates" do
+                new_code = Colorcode.new
+                expect(new_code.colors.any? { |el| new_code.colors.count(el) > 1 }).to be false
+            end
         end
 
         context "#selected_colors" do
