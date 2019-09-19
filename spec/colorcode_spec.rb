@@ -42,9 +42,17 @@ module Mastermind
                 new_code = Colorcode.new
                 expect(new_code.colors.any? { |el| new_code.colors.count(el) > 1 }).to be false
             end
+
+            it "does not have any empty strings as values" do
+                new_code = Colorcode.new
+                new_code.colors.each do |x|
+                    expect(x).to_not eq('')
+                end
+            end
         end
 
         context "#selected_colors" do
+            #no tests deemed necessary, yet
         end
 
 
