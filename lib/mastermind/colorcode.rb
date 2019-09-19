@@ -11,7 +11,7 @@ module Mastermind
       color_spectrum = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
       random = color_spectrum.sample
       @selected_colors ||= []
-      until !@selected_colors.include?(random)
+      until !@selected_colors.include?(random)  
         random = color_spectrum.sample
       end
       @selected_colors << random
