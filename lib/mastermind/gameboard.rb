@@ -1,13 +1,13 @@
 #require 'colorize'
 
 module Mastermind
-  class GameBoard
+  class Gameboard
     attr_accessor :solution, :guesses, :hints
 
     def initialize
-      @solution = ColorCode.new()
-      @guesses = Array.new(12, ColorCode.new("white", "white", "white", "white"))
-      @hints = Array.new(12, Hint.new("white", "white", "white", "white"))
+      @solution = Colorcode.new()
+      @guesses = Array.new(12, Colorcode.new("white", "white", "white", "white"))
+      @hints #= Array.new(12, Hint.new("white", "white", "white", "white"))
     end
 
     def display
