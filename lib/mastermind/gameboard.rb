@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # require 'colorize'
 
 module Mastermind
@@ -36,9 +38,7 @@ module Mastermind
         colors << 'red'
       end
 
-      until colors.length == 4
-        colors << 'white'
-      end
+      colors << 'white' until colors.length == 4
 
       @hints[row_index] = Hint.new(colors[0], colors[1], colors[2], colors[3])
     end

@@ -1,4 +1,6 @@
-require "mastermind/version"
+# frozen_string_literal: true
+
+require 'mastermind/version'
 
 module Mastermind
   class Error < StandardError; end

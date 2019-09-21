@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 module Mastermind
   class Colorcode
@@ -8,12 +9,10 @@ module Mastermind
     end
 
     def random
-      color_spectrum = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
+      color_spectrum = %w[red orange yellow green blue indigo violet]
       random = color_spectrum.sample
       @selected_colors ||= []
-      until !@selected_colors.include?(random)  
-        random = color_spectrum.sample
-      end
+      random = color_spectrum.sample while @selected_colors.include?(random)
       @selected_colors << random
       random
     end
