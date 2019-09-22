@@ -15,5 +15,12 @@ module Mastermind
         expect(new_gameboard.guesses).to be_an(Array)
       end
     end
+
+    context '#display' do
+      it 'is truthy and displays a gameboard' do
+        new_gameboard = Gameboard.new
+        expect(new_gameboard.display).to be_truthy
+      end
+    end
   end
 end

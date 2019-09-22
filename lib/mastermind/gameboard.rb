@@ -9,13 +9,13 @@ module Mastermind
     def initialize
       @solution = Colorcode.new
       @guesses = Array.new(12, Colorcode.new('white', 'white', 'white', 'white'))
-      @hints #= Array.new(12, Hint.new('white', 'white', 'white', 'white'))
+      # @hints #= Array.new(12, Hint.new('white', 'white', 'white', 'white'))
     end
 
     def display
-      puts '_____________________'
-      @guesses.each_with_index { |guess, index| puts "| #{colorize(guess, true)} | #{colorize(@hints[index], false)} |" }
-      puts '---------------------'
+      # puts '_____________________'
+      @guesses.each_with_index { |guess, _index| puts "| #{colorize(guess, true)} |" } # {colorize(@hints[index], false)} |" }
+      # puts '---------------------'
     end
 
     def refresh(row_index)

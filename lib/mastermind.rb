@@ -8,6 +8,4 @@ module Mastermind
 end
 
 require_relative './mastermind/colorcode.rb'
-require_relative './mastermind/secretcode.rb'
-require_relative './mastermind/peg.rb'
 require_relative './mastermind/gameboard.rb'
