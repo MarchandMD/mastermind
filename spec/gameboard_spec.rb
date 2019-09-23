@@ -5,9 +5,22 @@ require 'spec_helper'
 module Mastermind
   RSpec.describe Gameboard do
     context '#initialize' do
-      it 'creates a new solution' do
+      it 'creates a new solution by default' do
         new_gameboard = Gameboard.new
         expect(new_gameboard.solution).to be_truthy
+      end
+
+      it 'accepts a solution parameter, optionally' do
+        my_solution = Colorcode.new('red', 'orange', 'yellow', 'green')
+        new_gameboard = Gameboard.new(my_solution)
+        allow(new_gameboard).to receive(:solution) { ['red', 'orange', 'yellow', 'green'] }
+        expect(new_gameboard.solution).to eq(['red', 'orange', 'yellow', 'green'])
+      end
+
+      it 'accepts a solution parameter, optionally (second test method)' do
+        my_solution = Colorcode.new('red', 'orange', 'yellow', 'green')
+        new_gameboard = Gameboard.new(my_solution)
+        expect(new_gameboard.solution).to eq(my_solution)
       end
 
       it 'creates a 12-row board for #display' do
@@ -42,11 +55,11 @@ module Mastermind
       end
     end
 
-    context '#evaluate' do
-      it 'returns a value from the guesses instnace variable' do
-        new_gameboard = Gameboard.new
-        expect(new_gameboard.evaluate(1)).to be_falsey
-      end
-    end
+    # context '#evaluate' do
+    #   it 'returns a value from the guesses instnace variable' do
+    #     new_gameboard = Gameboard.new
+    #     expect(new_gameboard.evaluate(1)).to be_falsey
+    #   end
+    # end
   end
 end

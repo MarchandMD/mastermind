@@ -7,8 +7,9 @@ module Mastermind
   class Gameboard
     attr_accessor :solution, :guesses, :hints
 
-    def initialize
-      @solution = Colorcode.new
+    #need to pass something into it....
+    def initialize(input = nil)
+      @solution = input ||= Colorcode.new
       @guesses = Array.new(12, Colorcode.new('white', 'white', 'white', 'white'))
       @hints = Array.new(12, Hint.new('white', 'white', 'white', 'white'))
     end
