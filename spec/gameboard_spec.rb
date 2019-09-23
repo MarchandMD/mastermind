@@ -41,5 +41,12 @@ module Mastermind
         expect { new_gameboard.display }.to output.to_stdout
       end
     end
+
+    context '#evaluate' do
+      it 'returns a value from the guesses instnace variable' do
+        new_gameboard = Gameboard.new
+        expect(new_gameboard.evaluate(1)).to be_falsey
+      end
+    end
   end
 end
