@@ -14,9 +14,9 @@ module Mastermind
     end
 
     def display
-      puts "_____________________"
-      @guesses.each_with_index { |guess, _index| puts "| #{colorize(guess, true)} | #{colorize(@hints[index], false)} |" }
-      puts "---------------------"
+      puts '_____________________'
+      @guesses.each_with_index { |guess, index| puts "| #{colorize(guess, true)} | #{colorize(@hints[index], false)} |" }
+      puts '---------------------'
     end
 
     def refresh(row_index)
@@ -33,23 +33,23 @@ module Mastermind
       colors = []
 
       correct_colors.times do
-        colors << "green"
+        colors << 'green'
       end
 
       misplaced_correct_colors.times do
-        colors << "red"
+        colors << 'red'
       end
 
-      colors << "white" until colors.length == 4
+      colors << 'white' until colors.length == 4
 
       @hints[row_index] = Hint.new(colors[0], colors[1], colors[2], colors[3])
     end
 
     def colorize(set, is_color_code)
       colors = []
-      text = is_color_code ? "O" : "."
+      text = is_color_code ? 'O' : '.'
       set.colors.each { |color| colors.push(text.public_send(color.to_sym)) }
-      colors.join(" ")
+      colors.join(' ')
     end
   end
 end
