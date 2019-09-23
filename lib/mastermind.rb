@@ -9,3 +9,4 @@ end
 
 require_relative './mastermind/colorcode.rb'
 require_relative './mastermind/gameboard.rb'
+require_relative './mastermind/hint.rb'
