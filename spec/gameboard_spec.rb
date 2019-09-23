@@ -13,8 +13,8 @@ module Mastermind
       it 'accepts a solution parameter, optionally' do
         my_solution = Colorcode.new('red', 'orange', 'yellow', 'green')
         new_gameboard = Gameboard.new(my_solution)
-        allow(new_gameboard).to receive(:solution) { ['red', 'orange', 'yellow', 'green'] }
-        expect(new_gameboard.solution).to eq(['red', 'orange', 'yellow', 'green'])
+        allow(new_gameboard).to receive(:solution) { %w[red orange yellow green] }
+        expect(new_gameboard.solution).to eq(%w[red orange yellow green])
       end
 
       it 'accepts a solution parameter, optionally (second test method)' do
@@ -22,6 +22,12 @@ module Mastermind
         new_gameboard = Gameboard.new(my_solution)
         expect(new_gameboard.solution).to eq(my_solution)
       end
+
+      # it 'accepts a solution parameter, optionally (third test method)' do
+      #   Solution = Struct.new(:solution)
+      #   new_gameboard = Gameboard.new(Solution.new(%w[red orange yellow green]))
+      #   expect(new_gameboard.solution).to eq(%w[red orange yellow green])
+      # end
 
       it 'creates a 12-row board for #display' do
         new_gameboard = Gameboard.new
