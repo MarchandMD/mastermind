@@ -61,11 +61,12 @@ module Mastermind
       end
     end
 
-    # context '#evaluate' do
-    #   it 'returns a value from the guesses instnace variable' do
-    #     new_gameboard = Gameboard.new
-    #     expect(new_gameboard.evaluate(1)).to be_falsey
-    #   end
-    # end
+    context '#evaluate' do
+      it 'returns the number of correct_colors' do
+        my_solution = Colorcode.new('white', 'white', 'white', 'white')
+        new_gameboard = Gameboard.new(my_solution)
+        expect(new_gameboard.evaluate(0)).to eq(4)
+      end
+    end
   end
 end
