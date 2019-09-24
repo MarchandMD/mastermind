@@ -5,29 +5,27 @@ require 'spec_helper'
 module Mastermind
   RSpec.describe Gameboard do
     context '#initialize' do
-      it 'creates a new solution by default' do
+      it 'is initialized with a Colorcode solution by default' do
         new_gameboard = Gameboard.new
-        expect(new_gameboard.solution).to be_truthy
+        expect(new_gameboard.solution).to be_a(Colorcode)
       end
 
-      it 'accepts a solution parameter, optionally' do
-        my_solution = Colorcode.new('red', 'orange', 'yellow', 'green')
+      it 'can be initialized with a Colorcode solution' do
+        my_solution = %w[red orange yellow green]
         new_gameboard = Gameboard.new(my_solution)
-        allow(new_gameboard).to receive(:solution) { %w[red orange yellow green] }
         expect(new_gameboard.solution).to eq(%w[red orange yellow green])
       end
 
-      it 'accepts a solution parameter, optionally (second test method)' do
-        my_solution = Colorcode.new('red', 'orange', 'yellow', 'green')
-        new_gameboard = Gameboard.new(my_solution)
-        expect(new_gameboard.solution).to eq(my_solution)
+      it 'is initialized with guesses by default' do
+        new_gameboard = Gameboard.new
+        expect(new_gameboard.guesses).not_to be_empty
       end
 
-      # it 'accepts a solution parameter, optionally (third test method)' do
-      #   Solution = Struct.new(:solution)
-      #   new_gameboard = Gameboard.new(Solution.new(%w[red orange yellow green]))
-      #   expect(new_gameboard.solution).to eq(%w[red orange yellow green])
-      # end
+      it 'can be initialized with pre-determined guesses' do
+        guesses = %w[red white blue black]
+        new_gameboard = Gameboard.new(nil, guesses)
+        expect(new_gameboard.guesses).to eq(%w[red white blue black])
+      end
 
       it 'creates a 12-row board for #display' do
         new_gameboard = Gameboard.new
@@ -37,6 +35,13 @@ module Mastermind
       it 'creates 12-rows of hints' do
         new_gameboard = Gameboard.new
         expect(new_gameboard.hints.length).to eq(12)
+      end
+
+      it 'uses a Struct some how' do
+        new_gameboard = Gameboard.new
+        ThisStruct = Struct.new(:guesses)
+        my_thing = ThisStruct.new("woofWoof")
+        expect(my_thing.guesses).to eq("woofWoof")
       end
     end
 
@@ -58,14 +63,6 @@ module Mastermind
       it 'includes a solid line at the top' do
         new_gameboard = Gameboard.new
         expect { new_gameboard.display }.to output.to_stdout
-      end
-    end
-
-    context '#evaluate' do
-      it 'returns the number of correct_colors' do
-        my_solution = Colorcode.new('white', 'white', 'white', 'white')
-        new_gameboard = Gameboard.new(my_solution)
-        expect(new_gameboard.evaluate(0)).to eq(4)
       end
     end
   end
