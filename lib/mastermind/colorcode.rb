@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Mastermind
+  # a necessary comment
   class Colorcode
     attr_accessor :colors, :selected_colors
 
@@ -10,11 +11,11 @@ module Mastermind
 
     def random
       color_spectrum = %w[red orange yellow green blue indigo violet]
-      random = color_spectrum.sample
-      @selected_colors ||= []
-      random = color_spectrum.sample while @selected_colors.include?(random)
-      @selected_colors << random
-      random
+      # random = color_spectrum.sample
+      # @selected_colors ||= []
+      # random = color_spectrum.sample while @selected_colors.include?(random)
+      # @selected_colors << random
+      # random
     end
   end
 end
