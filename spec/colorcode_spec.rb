@@ -30,6 +30,14 @@ module Mastermind
       end
     end
 
+    context '#random' do
+      it 'returns a color from the color_spectrum' do
+        color_spectrum = %[red orange yellow green blue indigo violet]
+        new_code = Colorcode.new
+        expect(new_code.random).to eq('red').or eq('orange').or eq('yellow').or eq('green').or eq('blue').or eq('indigo').or eq('violet')
+      end
+    end
+
     # context '#colors' do
     #   it 'has elements that are 1 of 8 colors from ROYGBIV' do
     #     new_code = Colorcode.new
