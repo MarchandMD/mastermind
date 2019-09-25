@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "colorize"
+require 'colorize'
 
 module Mastermind
   # this is the Gameboard class
@@ -9,14 +9,14 @@ module Mastermind
 
     def initialize(solution = nil, guesses = nil)
       @solution = solution ||= Colorcode.new
-      @guesses = guesses ||= Array.new(12, Colorcode.new("white", "white", "white", "white"))
-      @hints = Array.new(12, Hint.new("white", "white", "white", "white"))
+      @guesses = guesses ||= Array.new(12, Colorcode.new('white', 'white', 'white', 'white'))
+      @hints = Array.new(12, Hint.new('white', 'white', 'white', 'white'))
     end
 
     def display(guesses = @guesses, hints = @hints)
-      puts "_____________________"
+      puts '_____________________'
       guesses.each_with_index { |guess, index| puts "| #{colorize(guess, true)} | #{colorize(hints[index], false)} |" }
-      puts "---------------------"
+      puts '---------------------'
     end
 
     def refresh(row_index)
@@ -34,15 +34,15 @@ module Mastermind
 
       misplaced_correct_colors = @guesses[row_index].colors.select { |color| @solution.colors.include?(color) == true }.uniq.length - correct_colors
 
-      feedback = Array.new
+      feedback = []
 
       correct_colors.times do
-        feedback << "green"
+        feedback << 'green'
       end
 
-      # misplaced_correct_colors.times do
-      #   feedback << 'red'
-      # end
+      misplaced_correct_colors.times do
+        feedback << 'red'
+      end
 
       # feedback << 'white' until colors.length == 4
 
@@ -51,9 +51,9 @@ module Mastermind
 
     def colorize(set, is_color_code)
       colors = []
-      text = is_color_code ? "O" : "."
+      text = is_color_code ? 'O' : '.'
       set.colors.each { |color| colors.push(text.public_send(color.to_sym)) }
-      colors.join(" ")
+      colors.join(' ')
     end
   end
 end
