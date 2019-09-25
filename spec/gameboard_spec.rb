@@ -60,8 +60,24 @@ module Mastermind
     end
 
     context '#evaluate' do
- 
-
+      it 'returns a Hint object' do
+        solution = Colorcode.new('red', 'white', 'blue', 'black')
+        guesses = Array.new(12, Colorcode.new('red', 'blue', 'green', 'yellow'))
+        new_gameboard = Gameboard.new(solution, guesses)
+        expect(new_gameboard.evaluate(0)).to be_a(Hint)
+      end
+      it 'includes green or red or white items in the Hint object' do
+        solution = Colorcode.new('red', 'white', 'blue', 'black')
+        guesses = Array.new(12, Colorcode.new('orange', 'cyan', 'green', 'yellow'))
+        new_gameboard = Gameboard.new(solution, guesses)
+        expect(new_gameboard.evaluate(0).colors).to include("green").or include("red").or include("white")
+      end
+      it 'returns 4 elements' do
+        solution = Colorcode.new('red', 'white', 'blue', 'black')
+        guesses = Array.new(12, Colorcode.new('orange', 'cyan', 'green', 'yellow'))
+        new_gameboard = Gameboard.new(solution, guesses)
+        expect(new_gameboard.evaluate(0).colors.length).to eq(4)
+      end
     end
   end
 end

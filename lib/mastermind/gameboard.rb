@@ -45,7 +45,7 @@ module Mastermind
       end
 
       feedback << 'white' until feedback.length == 4
-
+      
       @hints[row_index] = Hint.new(feedback[0], feedback[1], feedback[2], feedback[3])
     end
 
