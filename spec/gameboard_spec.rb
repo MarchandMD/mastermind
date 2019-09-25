@@ -36,17 +36,10 @@ module Mastermind
         new_gameboard = Gameboard.new
         expect(new_gameboard.hints.length).to eq(12)
       end
-
-      it 'uses a Struct some how' do
-        new_gameboard = Gameboard.new
-        ThisStruct = Struct.new(:guesses)
-        my_thing = ThisStruct.new("woofWoof")
-        expect(my_thing.guesses).to eq("woofWoof")
-      end
     end
 
     context '#solution' do
-      it 'is a Colorcode object' do
+      it 'is a Colorcode object by default' do
         new_gameboard = Gameboard.new
         expect(new_gameboard.solution).to be_a_kind_of(Colorcode)
       end
@@ -63,6 +56,15 @@ module Mastermind
       it 'includes a solid line at the top' do
         new_gameboard = Gameboard.new
         expect { new_gameboard.display }.to output.to_stdout
+      end
+    end
+
+    context '#evaluate' do
+      it 'returns misplaced_correct_colors local variable' do
+         # solution = Colorcode.new('white', 'red', 'black', 'blue')
+         # guesses = Array.new(12, Colorcode.new('red', 'white', 'blue', 'black'))
+        new_gameboard = Gameboard.new
+        expect(new_gameboard.evaluate(0)).to be_an(Integer)
       end
     end
   end
