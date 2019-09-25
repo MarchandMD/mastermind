@@ -44,9 +44,9 @@ module Mastermind
         feedback << 'red'
       end
 
-      # feedback << 'white' until colors.length == 4
+      feedback << 'white' until feedback.length == 4
 
-      # @hints[row_index] = Hint.new(feedback[0], feedback[1], feedback[2], feedback[3])
+      @hints[row_index] = Hint.new(feedback[0], feedback[1], feedback[2], feedback[3])
     end
 
     def colorize(set, is_color_code)

@@ -11,4 +11,4 @@ Metrics/AbcSize:
   Max: 100
 
 Style:
-  StringLiterals: double-quotes
+  StringLiterals: double_quotes

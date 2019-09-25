@@ -60,12 +60,8 @@ module Mastermind
     end
 
     context '#evaluate' do
-      it 'returns misplaced_correct_colors local variable' do
-        # solution = Colorcode.new('white', 'red', 'black', 'blue')
-        # guesses = Array.new(12, Colorcode.new('red', 'white', 'blue', 'black'))
-        new_gameboard = Gameboard.new
-        expect(new_gameboard.evaluate(0)).to be_an(Integer)
-      end
+ 
+
     end
   end
 end
