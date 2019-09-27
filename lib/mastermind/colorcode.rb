@@ -15,7 +15,7 @@ module Mastermind
       @selected_colors ||= []
       random = color_spectrum.sample while @selected_colors.include?(random)
       @selected_colors << random
-      # random
+      random
     end
   end
 end

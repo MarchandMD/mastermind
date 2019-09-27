@@ -11,9 +11,9 @@ module Mastermind
       end
 
       it 'can be initialized with a Colorcode solution' do
-        my_solution = %w[red orange yellow green]
+        my_solution = %w[red white yellow green]
         new_gameboard = Gameboard.new(my_solution)
-        expect(new_gameboard.solution).to eq(%w[red orange yellow green])
+        expect(new_gameboard.solution).to eq(%w[red white yellow green])
       end
 
       it 'is initialized with guesses by default' do
@@ -62,7 +62,7 @@ module Mastermind
     context '#evaluate' do
       it 'returns a Hint object' do
         solution = Colorcode.new('red', 'white', 'blue', 'black')
-        guesses = Array.new(12, Colorcode.new('red', 'blue', 'green', 'yellow'))
+        guesses = Array.new(12, Colorcode.new('red', 'blue', 'green', 'magenta'))
         new_gameboard = Gameboard.new(solution, guesses)
         expect(new_gameboard.evaluate(0)).to be_a(Hint)
       end
@@ -74,7 +74,7 @@ module Mastermind
       end
       it 'returns 4 elements' do
         solution = Colorcode.new('red', 'white', 'blue', 'black')
-        guesses = Array.new(12, Colorcode.new('orange', 'cyan', 'green', 'yellow'))
+        guesses = Array.new(12, Colorcode.new('magenta', 'cyan', 'green', 'yellow'))
         new_gameboard = Gameboard.new(solution, guesses)
         expect(new_gameboard.evaluate(0).colors.length).to eq(4)
       end
