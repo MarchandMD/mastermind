@@ -5,10 +5,10 @@ require "spec_helper"
 module Mastermind
   RSpec.describe "Computer" do
     context "#initialize" do
-      it "sets the @color_spectrum instance variable" do
-        hal = Computer.new
-        expect(hal.color_spectrum).to eq(%w[red orange yellow green blue indigo violet])
-      end
+      # it "sets the @color_spectrum instance variable" do
+      #   hal = Computer.new
+      #   expect(hal.color_spectrum).to eq(%w[red green yellow blue black magenta cyan white])
+      # end
 
       it "sets the @guess_set instance variable to 0 by default" do
         hal = Computer.new
@@ -35,23 +35,27 @@ module Mastermind
     end
 
     context "#guess" do
-      it "assigns a Hint object to #guess method" do
-        hint = Hint.new("green", "white", "white", "white")
-        hal = Computer.new
+      it "doesn't do anything yet" do
+        # hint = Hint.new("green", "white", "white", "white")
+        # hal = Computer.new
       end
     end
 
     context "#get_guess" do
-      it "returns the 'computer_guess' local variable" do
+      it "the first guess_set is all red" do
         hal = Computer.new
         hints = Array.new(12, Hint.new("white", "white", "white", "white"))
-        expect(hal.get_guess(hints, 1)).to be_falsey
+        expect(hal.get_guess(hints, 1)).to eq(%w[red red red red])
       end
-
-      it 'does something interesting' do
+      it "second guess_set is all green" do
+        hal = Computer.new(1)
+        hints = Array.new(12, Hint.new("white", "white", "white", "white"))
+        expect(hal.get_guess(hints, 2)).to eq(%w[green green green green])
+      end
+      it "third guess_set is all yellow" do
         hal = Computer.new(2)
-        hints = Array.new(12, Hint.new('white', 'white', 'white', 'white'))
-        expect(hal.get_guess(hints, 3)).to be_falsey
+        hints = Array.new(12, Hint.new("white", "white", "white", "white"))
+        expect(hal.get_guess(hints, 3)).to eq(%w[yellow yellow yellow yellow])
       end
     end
 
