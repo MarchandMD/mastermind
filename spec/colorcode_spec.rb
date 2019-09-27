@@ -32,7 +32,7 @@ module Mastermind
 
     context '#random' do
       it 'returns a color from the color_spectrum' do
-        color_spectrum = %[red orange yellow green blue indigo violet]
+        color_spectrum = %(red orange yellow green blue indigo violet)
         new_code = Colorcode.new
         expect(new_code.random).to eq('red').or eq('orange').or eq('yellow').or eq('green').or eq('blue').or eq('indigo').or eq('violet')
       end

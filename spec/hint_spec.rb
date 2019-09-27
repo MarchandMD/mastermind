@@ -19,6 +19,11 @@ module Mastermind
         a_hint = Hint.new('white', 'white', 'white', 'white')
         expect(a_hint.colors.length).to eq(4)
       end
+
+      it 'can access an individual element from itself' do
+        a_hint = Hint.new('white', 'white', 'white', 'white')
+        expect(a_hint.colors[0]).to eq('white')
+      end
     end
   end
 end
