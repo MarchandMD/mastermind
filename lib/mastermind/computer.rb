@@ -42,12 +42,12 @@ module Mastermind
           computer_guess = @correct_colors
           @correct_colors = @correct_colors.shuffle
         else
-          #       computer_guess = @correct_colors
-          #       @correct_colors = @correct_colors.shuffle
+          computer_guess = @correct_colors
+          @correct_colors = @correct_colors.shuffle
         end
       else
-        #     computer_guess = @correct_colors
-        #     @correct_colors = @correct_colors.shuffle
+        computer_guess = @correct_colors
+        @correct_colors = @correct_colors.shuffle
       end
       computer_guess
     end

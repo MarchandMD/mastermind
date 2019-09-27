@@ -25,6 +25,11 @@ module Mastermind
         expect(hal.correct_colors).to be_an(Array)
         expect(hal.correct_colors.length).to eq(0)
       end
+
+      it "allows @correct_colors to be set to an array optionally" do
+        hal = Computer.new(0, %w[red green blue yellow])
+        expect(hal.correct_colors).to eq(%w[red green blue yellow])
+      end
     end
 
     context "#color_spectrum" do
@@ -56,6 +61,11 @@ module Mastermind
         hal = Computer.new(2)
         hints = Array.new(12, Hint.new("white", "white", "white", "white"))
         expect(hal.get_guess(hints, 3)).to eq(%w[yellow yellow yellow yellow])
+      end
+      it "returns the @correct_colors as the computer_guess local variable" do
+        hal = Computer.new(8, %w[red green yellow blue])
+        hints = Array.new(12, Hint.new("white", "white", "white", "white"))
+        expect(hal.get_guess(hints, 9)).to eq(%w[red green yellow blue])
       end
     end
 
