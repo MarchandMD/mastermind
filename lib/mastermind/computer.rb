@@ -6,10 +6,10 @@ module Mastermind
   class Computer
     attr_accessor :color_spectrum, :guess_set, :correct_colors
 
-    def initialize
+    def initialize(guess_set = nil, current_colors = nil)
       @color_spectrum = %w[red orange yellow green blue indigo violet]
-      @guess_set = 0
-      @correct_colors = []
+      @guess_set = guess_set ||= 0
+      @correct_colors = current_colors ||= []
     end
 
     # calls #get_guess with (hints, turns)and passes (hints, turns) to #color_is_correct
@@ -28,17 +28,16 @@ module Mastermind
       if @correct_colors.uniq.length != 4
         case turn
         when 1
-          "turn 1"
-          #       4.times { computer_guess << @color_spectrum[@guess_set] }
+          4.times { computer_guess << @color_spectrum[@guess_set] }
 
-          #       @guess_set += 1
+          @guess_set += 1
         when (2..8)
           "turn 2-8"
-          #       4.times { computer_guess << @color_spectrum[@guess_set] }
+          4.times { computer_guess << @color_spectrum[@guess_set] }
 
-          #       @correct_colors << @color_spectrum[@guess_set - 1] if color_is_correct(hints, turn)
+          @correct_colors << @color_spectrum[@guess_set - 1] if color_is_correct(hints, turn)
 
-          #       @guess_set += 1 if @guess_set < 8
+          @guess_set += 1 if @guess_set < 8
         when 9
           "turn 9"
           #       @correct_colors << @color_spectrum[@guess_set - 1] if color_is_correct(hints, turn)
@@ -56,7 +55,8 @@ module Mastermind
         "@correct_colors.uniq.length is == 4; computer wins"
       end
 
-      computer_guess
+      #computer_guess
+      @guess_set
     end
 
     def color_is_correct(hints, turn)
