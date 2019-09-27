@@ -10,7 +10,7 @@ module Mastermind
     end
 
     def random
-      color_spectrum = %w[red orange yellow green blue indigo violet]
+      color_spectrum = %w[red green yellow blue black magenta cyan white]
       random = color_spectrum.sample
       @selected_colors ||= []
       random = color_spectrum.sample while @selected_colors.include?(random)

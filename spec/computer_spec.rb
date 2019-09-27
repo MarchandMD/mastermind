@@ -10,9 +10,14 @@ module Mastermind
         expect(hal.color_spectrum).to eq(%w[red orange yellow green blue indigo violet])
       end
 
-      it "sets the @guess_set instance variable to 0" do
+      it "sets the @guess_set instance variable to 0 by default" do
         hal = Computer.new
         expect(hal.guess_set).to eq(0)
+      end
+
+      it "can accept a parameter for the guess_set instance variable" do
+        hal = Computer.new(1)
+        expect(hal.guess_set).to eq(1)
       end
 
       it "sets the @correct_colors instance variable to an empty Array" do
@@ -22,10 +27,10 @@ module Mastermind
       end
     end
 
-    context '#color_spectrum' do
-      it 'returns a single element by index' do
+    context "#color_spectrum" do
+      it "returns a single element by index" do
         hal = Computer.new
-        expect(hal.color_spectrum[0]).to eq('red')
+        expect(hal.color_spectrum[0]).to eq("red")
       end
     end
 
@@ -39,13 +44,19 @@ module Mastermind
     context "#get_guess" do
       it "returns the 'computer_guess' local variable" do
         hal = Computer.new
+        hints = Array.new(12, Hint.new("white", "white", "white", "white"))
+        expect(hal.get_guess(hints, 1)).to be_falsey
+      end
+
+      it 'does something interesting' do
+        hal = Computer.new(2)
         hints = Array.new(12, Hint.new('white', 'white', 'white', 'white'))
-        expect(hal.get_guess(hints,2)).to be_falsey
+        expect(hal.get_guess(hints, 3)).to be_falsey
       end
     end
 
     context "#color_is_correct" do
-      it 'evaluates first Hint#colors element for green-ness' do
+      it "evaluates first Hint#colors element for green-ness" do
         hints = Array.new(12, Hint.new("green", "white", "white", "white"))
         hal = Computer.new
         expect(hal.color_is_correct(hints, 2)).to eq(true)
