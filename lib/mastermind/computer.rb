@@ -20,8 +20,7 @@ module Mastermind
       computer_guess
     end
 
-    # accepts (hints, turns) from #guess
-    #
+  # accepts (hints, turns) from #guess
     def get_guess(hints = nil, turn = nil)
       computer_guess = []
 

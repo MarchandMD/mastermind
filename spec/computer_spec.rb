@@ -41,8 +41,9 @@ module Mastermind
 
     context "#guess" do
       it "doesn't do anything yet" do
-        # hint = Hint.new("green", "white", "white", "white")
-        # hal = Computer.new
+        hint = Array.new(12, Hint.new("white", "white", "white", "white"))
+        hal = Computer.new
+        expect(hal.guess(hint,1)).to be_falsey
       end
     end
 
