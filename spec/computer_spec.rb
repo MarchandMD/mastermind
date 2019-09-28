@@ -43,13 +43,13 @@ module Mastermind
       it "returns a collection with 4 elements" do
         hint = Array.new(12, Hint.new("white", "white", "white", "white"))
         hal = Computer.new(1)
-        expect(hal.guess(hint,2).length).to eq(4)
+        expect(hal.guess(hint, 2).length).to eq(4)
       end
 
       it "is a collection of colors" do
         hint = Array.new(12, Hint.new("white", "white", "white", "white"))
         hal = Computer.new(1)
-        hal.guess(hint,2).each do |el|
+        hal.guess(hint, 2).each do |el|
           expect(el).to eq('red').or eq('green').or eq('yellow').or eq('blue').or eq('black').or eq('magneta').or eq('white')
         end
       end
