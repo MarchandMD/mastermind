@@ -71,15 +71,15 @@ module Mastermind
     #   turns > 12 ? lose : win
     # end
 
-    # def make_guesses
-    #   while @win == false && @turns < 13
-    #     prompt_guess
-    #     guess = @player_mode ? get_player_guess : get_computer_guess
-    #     add_guess(guess)
-    #     @win = true if gameboard.guesses[12 - @turns].colors == gameboard.solution.colors
-    #     @turns += 1 if @win == false
-    #   end
-    # end
+    def make_guesses
+      while @win == false && @turns < 13
+        prompt_guess
+        guess = @player_mode ? get_player_guess : get_computer_guess
+        add_guess(guess)
+        @win = true if gameboard.guesses[12 - @turns].colors == gameboard.solution.colors
+        @turns += 1 if @win == false
+      end
+    end
 
     def prompt_guess
       puts @player_mode ? "What is your ##{@turns} guess?" : "\nComputer, make your ##{@turns} guess."
