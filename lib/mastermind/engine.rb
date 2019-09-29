@@ -7,6 +7,7 @@ require_relative "computer.rb"
 
 # responsible for the game engine
 module Mastermind
+  # the Engine class
   class Engine
     attr_accessor :gameboard, :win, :turns, :color_spectrum, :player_mode, :computer
 
@@ -80,11 +81,11 @@ module Mastermind
     #   end
     # end
 
-    # def prompt_guess
-    #   puts @player_mode ? "What is your ##{@turns} guess?" : "\nComputer, make your ##{@turns} guess."
-    #   puts "Type four colors separated by spaces."
-    #   print "Your choices are: red, green, yellow, blue, black, magenta, cyan, and white.\n> "
-    # end
+    def prompt_guess
+      puts @player_mode ? "What is your ##{@turns} guess?" : "\nComputer, make your ##{@turns} guess."
+      puts "Type four colors separated by spaces."
+      print "Your choices are: red, green, yellow, blue, black, magenta, cyan, and white.\n> "
+    end
 
     def get_player_guess
       1.times do
@@ -115,10 +116,10 @@ module Mastermind
       @computer.guess(@gameboard.hints, @turns)
     end
 
-    # def add_guess(guess)
-    #   gameboard.guesses[12 - @turns] = Colorcode.new(guess[0], guess[1], guess[2], guess[3])
-    #   gameboard.refresh(12 - @turns)
-    # end
+    def add_guess(guess)
+      gameboard.guesses[12 - @turns] = Colorcode.new(guess[0], guess[1], guess[2], guess[3])
+      gameboard.refresh(12 - @turns)
+    end
 
     def lose
       puts @player_mode ? "You have failed to crack the puzzle! It's okay; you're just not smart." : "No... I have failed."
