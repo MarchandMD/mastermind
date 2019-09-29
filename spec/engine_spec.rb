@@ -103,8 +103,9 @@ module Mastermind
       end
     end
     context "#win" do
-      it "wins" do
-        # unit tests here
+      it "puts a message if player_mode is true, and you win" do
+        engine = Engine.new
+        expect { engine.win }.to output { "\nYou have solved the code! Amazing!" }.to_stdout
       end
     end
   end

@@ -111,9 +111,9 @@ module Mastermind
     #   end
     # end
 
-    # def get_computer_guess
-    #   @computer.guess(@gameboard.hints, @turns)
-    # end
+    def get_computer_guess
+      @computer.guess(@gameboard.hints, @turns)
+    end
 
     # def add_guess(guess)
     #   gameboard.guesses[12 - @turns] = Colorcode.new(guess[0], guess[1], guess[2], guess[3])
@@ -125,9 +125,9 @@ module Mastermind
       puts "The solution was #{@gameboard.solution.colors}."
     end
 
-    # def win
-    #   puts @player_mode ? "\nYou have solved the code! Amazing!" : "\nI have solved the code, you measly human. Next I will destroy you!"
-    # end
+    def win
+      puts @player_mode ? "\nYou have solved the code! Amazing!" : "\nI have solved the code, you measly human. Next I will destroy you!"
+    end
   end
 end
 
