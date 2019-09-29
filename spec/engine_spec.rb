@@ -38,6 +38,13 @@ module Mastermind
       end
     end
 
+    context "#gameboard" do
+      it 'returns the colors of the solution' do
+        engine = Engine.new
+        expect(engine.gameboard.solution.colors).to be_truthy
+      end
+    end
+
     context "#play" do
       it "starts to play" do
         # unit tests here
@@ -46,7 +53,7 @@ module Mastermind
     context "#instructions" do
       it "provides instructions" do
         engine = Engine.new
-        expect{ engine.instructions }.to output.to_stdout
+        expect { engine.instructions }.to output.to_stdout
       end
     end
     context "#prompt_switch_mode" do
@@ -91,7 +98,8 @@ module Mastermind
     end
     context "#lose" do
       it "loses" do
-        # unit tests here
+        engine = Engine.new
+        expect { engine.lose }.to output { "The solution was #{@gameboard.solution.colors}." }.to_stdout
       end
     end
     context "#win" do
