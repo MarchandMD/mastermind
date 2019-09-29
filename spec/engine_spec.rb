@@ -88,7 +88,8 @@ module Mastermind
     end
     context "#get_computer_guess" do
       it "gets the computers guess" do
-        # unit tests here
+        engine = Engine.new
+        expect(engine.get_computer_guess).to be_falsey
       end
     end
     context "#add_guess" do
