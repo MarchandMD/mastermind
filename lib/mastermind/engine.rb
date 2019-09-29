@@ -24,7 +24,7 @@ module Mastermind
       instructions
       prompt_switch_mode
       set_solution if @player_mode == false
-      #   start
+      start
     end
 
     def instructions
@@ -66,10 +66,10 @@ module Mastermind
       @gameboard.solution = Colorcode.new(solution[0], solution[1], solution[2], solution[3])
     end
 
-    # def start
-    #   make_guesses
-    #   turns > 12 ? lose : win
-    # end
+    def start
+      make_guesses
+      turns > 12 ? lose : win
+    end
 
     def make_guesses
       while @win == false && @turns < 13
