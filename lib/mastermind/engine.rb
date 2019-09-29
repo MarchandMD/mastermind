@@ -21,8 +21,8 @@ module Mastermind
 
     def play
       instructions
-      #   prompt_switch_mode
-      #   set_solution if @player_mode == false
+      prompt_switch_mode
+      set_solution if @player_mode == false
       #   start
     end
 
@@ -57,13 +57,13 @@ module Mastermind
       @player_mode = false if mode == "computer"
     end
 
-    # def set_solution
-    #   puts "What would you like your solution to be?"
-    #   puts "\nType four colors separated by spaces."
-    #   print "Your choices are: red, green, yellow, blue, black, magenta, cyan, and white.\n> "
-    #   solution = get_player_guess
-    #   @gameboard.solution = Colorcode.new(solution[0], solution[1], solution[2], solution[3])
-    # end
+    def set_solution
+      puts "What would you like your solution to be?"
+      puts "\nType four colors separated by spaces."
+      print "Your choices are: red, green, yellow, blue, black, magenta, cyan, and white.\n> "
+      solution = get_player_guess
+      @gameboard.solution = Colorcode.new(solution[0], solution[1], solution[2], solution[3])
+    end
 
     # def start
     #   make_guesses
@@ -86,30 +86,30 @@ module Mastermind
     #   print "Your choices are: red, green, yellow, blue, black, magenta, cyan, and white.\n> "
     # end
 
-    # def get_player_guess
-    #   1.times do
-    #     guess = gets.chomp.downcase.split(" ")
+    def get_player_guess
+      1.times do
+        guess = gets.chomp.downcase.split(" ")
 
-    #     if guess.length != 4
-    #       print "\nYou entered the wrong amount of colors! Try again:\n> "
-    #       redo
-    #     end
+        if guess.length != 4
+          print "\nYou entered the wrong amount of colors! Try again:\n> "
+          redo
+        end
 
-    #     if !@color_spectrum.include?(guess[0]) || !@color_spectrum.include?(guess[1]) || !@color_spectrum.include?(guess[2]) || !@color_spectrum.include?(guess[3])
-    #       print "\nYou can only enter the colors specified! Try again:\n> "
-    #       redo
-    #     end
+        if !@color_spectrum.include?(guess[0]) || !@color_spectrum.include?(guess[1]) || !@color_spectrum.include?(guess[2]) || !@color_spectrum.include?(guess[3])
+          print "\nYou can only enter the colors specified! Try again:\n> "
+          redo
+        end
 
-    #     if @player_mode == false
-    #       if guess.uniq.length != 4
-    #         print "\nYou must have different colors for the solution. Try again:\n> "
-    #         redo
-    #       end
-    #     end
+        if @player_mode == false
+          if guess.uniq.length != 4
+            print "\nYou must have different colors for the solution. Try again:\n> "
+            redo
+          end
+        end
 
-    #     return guess
-    #   end
-    # end
+        return guess
+      end
+    end
 
     def get_computer_guess
       @computer.guess(@gameboard.hints, @turns)
