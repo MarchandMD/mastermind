@@ -89,7 +89,7 @@ module Mastermind
     context "#get_computer_guess" do
       it "gets the computers guess" do
         engine = Engine.new
-        expect(engine.get_computer_guess).to be_falsey
+        expect(engine.get_computer_guess).to eq(%w[red red red red])
       end
     end
     context "#add_guess" do
