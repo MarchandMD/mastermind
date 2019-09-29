@@ -45,17 +45,17 @@ module Mastermind
       puts "_________________________________________________________\n\n"
     end
 
-    # def prompt_switch_mode
-    #   puts "Do you want to play or do you want the computer to play?"
-    #   print "Say \"computer\" or \"me\".\n> "
-    #   mode = gets.chomp
-    #   until mode == "computer" || mode == "me"
-    #     print "\nI didn't quite understand that. Say \"computer\" or \"me.\"\n> "
-    #     mode = gets.chomp
-    #   end
-    #   puts ""
-    #   @player_mode = false if mode == "computer"
-    # end
+    def prompt_switch_mode
+      puts "Do you want to play or do you want the computer to play?"
+      print "Say \"computer\" or \"me\".\n> "
+      mode = gets.chomp
+      until mode == "computer" || mode == "me"
+        print "\nI didn't quite understand that. Say \"computer\" or \"me.\"\n> "
+        mode = gets.chomp
+      end
+      puts ""
+      @player_mode = false if mode == "computer"
+    end
 
     # def set_solution
     #   puts "What would you like your solution to be?"
