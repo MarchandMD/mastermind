@@ -127,7 +127,7 @@ module Mastermind
     end
 
     def win
-      puts @player_mode ? "\nYou have solved the code! Amazing!" : "\nI have solved the code, you measly human. Next I will destroy you!"
+      puts @player_mode ? "\nYou have solved the code! Amazing!" : "\nI have solved the code, thanks for the game!"
     end
   end
 end
