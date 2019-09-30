@@ -132,5 +132,5 @@ module Mastermind
   end
 end
 
-game = Mastermind::Engine.new
-game.play
+# game = Mastermind::Engine.new
+# game.play
