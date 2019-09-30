@@ -6,17 +6,21 @@ module Mastermind
     attr_accessor :colors
 
     def initialize(*args)
-      @colors = if args.length == 4
-                  [args[0], args[1], args[2], args[3]]
-                else
-                  color_spectrum.shuffle.pop(4)
-                end
+      @colors = make_code(args)
     end
 
     private
 
     def color_spectrum
-      %w[red orange yellow green blue indigo violet]
+      %w[red green yellow blue black magenta cyan white]
+    end
+
+    def make_code(arr)
+      if arr.length == 4
+        [arr[0], arr[1], arr[2], arr[3]]
+      else
+        color_spectrum.shuffle.pop(4)
+      end
     end
 
     # attr_accessor :colors, :selected_colors
