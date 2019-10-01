@@ -81,15 +81,15 @@ module Mastermind
         # unit tests here
       end
     end
-    context "#get_player_guess" do
+    context "#solicit_player_guess" do
       it "gets the players guess" do
         # unit tests here
       end
     end
-    context "#get_computer_guess" do
+    context "#solicit_computer_guess" do
       it "gets the computers guess" do
         engine = Engine.new
-        expect(engine.get_computer_guess).to eq(%w[red red red red])
+        expect(engine.solicit_computer_guess).to eq(%w[red red red red])
       end
     end
     context "#add_guess" do
@@ -103,10 +103,10 @@ module Mastermind
         expect { engine.lose }.to output { "The solution was #{@gameboard.solution.colors}." }.to_stdout
       end
     end
-    context "#win" do
+    context "#win_game" do
       it "puts a message if player_mode is true, and you win" do
         engine = Engine.new
-        expect { engine.win }.to output { "\nYou have solved the code! Amazing!" }.to_stdout
+        expect { engine.win_game }.to output { "\nYou have solved the code! Amazing!" }.to_stdout
       end
     end
   end

@@ -51,7 +51,7 @@ module Mastermind
 
     def colorize(set, is_color_code)
       colors = []
-      text = is_color_code ? "O" : "."
+      text = is_color_code ? "O" : "*"
       set.colors.each { |color| colors.push(text.public_send(color.to_sym)) }
       colors.join(" ")
     end
