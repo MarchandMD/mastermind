@@ -24,29 +24,29 @@ module Mastermind
     def get_guess(hints = nil, turn = nil)
       computer_guess = []
 
-      if @correct_colors.uniq.length != 4
+      if correct_colors.uniq.length != 4
         case turn
         when 1
-          4.times { computer_guess << @color_spectrum[@guess_set] }
+          4.times { computer_guess << color_spectrum[guess_set] }
 
           @guess_set += 1
         when (2..8)
-          4.times { computer_guess << @color_spectrum[@guess_set] }
+          4.times { computer_guess << color_spectrum[guess_set] }
 
-          @correct_colors << @color_spectrum[@guess_set - 1] if color_is_correct(hints, turn)
+          correct_colors << color_spectrum[guess_set - 1] if color_is_correct(hints, turn)
 
-          @guess_set += 1 if @guess_set < 8
+          self.guess_set += 1 if guess_set < 8
         when 9
-          @correct_colors << @color_spectrum[@guess_set - 1] if color_is_correct(hints, turn)
-          computer_guess = @correct_colors
-          @correct_colors = @correct_colors.shuffle
+          correct_colors << color_spectrum[guess_set - 1] if color_is_correct(hints, turn)
+          computer_guess = correct_colors
+          self.correct_colors = correct_colors.shuffle
         else
-          computer_guess = @correct_colors
-          @correct_colors = @correct_colors.shuffle
+          computer_guess = correct_colors
+          self.correct_colors = correct_colors.shuffle
         end
       else
-        computer_guess = @correct_colors
-        @correct_colors = @correct_colors.shuffle
+        computer_guess = correct_colors
+        self.correct_colors = correct_colors.shuffle
       end
       computer_guess
     end
