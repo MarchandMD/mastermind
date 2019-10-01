@@ -23,6 +23,7 @@ module Mastermind
       end
     end
 
+    # Below is the original class; I've re-factored to the above
     # attr_accessor :colors, :selected_colors
 
     # def initialize(color1 = random, color2 = random, color3 = random, color4 = random)

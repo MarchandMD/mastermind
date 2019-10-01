@@ -7,9 +7,9 @@ module Mastermind
   class Gameboard
     attr_accessor :solution, :guesses, :hints
 
-    def initialize(solution = nil, guesses = nil)
-      @solution = solution ||= Colorcode.new
-      @guesses = guesses ||= Array.new(12, Colorcode.new("white", "white", "white", "white"))
+    def initialize(solution = Colorcode.new, guesses = Array.new(12, Colorcode.new("white", "white", "white", "white")))
+      @solution = solution
+      @guesses = guesses
       @hints = Array.new(12, Hint.new("white", "white", "white", "white"))
     end
 
