@@ -13,7 +13,7 @@ module Mastermind
       @hints = Array.new(12, Hint.new("white", "white", "white", "white"))
     end
 
-    def display(guesses = @guesses, hints = @hints)
+    def display(guesses = self.guesses, hints = self.hints)
       puts "_____________________"
       guesses.each_with_index { |guess, index| puts "| #{colorize(guess, true)} | #{colorize(hints[index], false)} |" }
       puts "---------------------"
@@ -28,11 +28,11 @@ module Mastermind
     def evaluate(row_index)
       correct_colors = 0
 
-      @guesses[row_index].colors.each_with_index do |peg, index|
-        correct_colors += 1 if @solution.colors[index] == peg
+      guesses[row_index].colors.each_with_index do |peg, index|
+        correct_colors += 1 if solution.colors[index] == peg
       end
 
-      misplaced_correct_colors = @guesses[row_index].colors.select { |color| @solution.colors.include?(color) == true }.uniq.length - correct_colors
+      misplaced_correct_colors = guesses[row_index].colors.select { |color| solution.colors.include?(color) == true }.uniq.length - correct_colors
 
       feedback = []
 
@@ -46,7 +46,7 @@ module Mastermind
 
       feedback << "white" until feedback.length == 4
 
-      @hints[row_index] = Hint.new(feedback[0], feedback[1], feedback[2], feedback[3])
+      hints[row_index] = Hint.new(feedback[0], feedback[1], feedback[2], feedback[3])
     end
 
     def colorize(set, is_color_code)
