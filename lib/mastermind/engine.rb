@@ -114,7 +114,7 @@ module Mastermind
     end
 
     def solicit_computer_guess
-      @computer.guess(gameboard.hints, turns)
+      computer.guess(gameboard.hints, turns)
     end
 
     def add_guess(guess)

@@ -10,36 +10,36 @@ module Mastermind
         expect(new_engine.gameboard).to be_a(Gameboard)
       end
 
-      it 'sets win to false' do
+      it "sets win to false" do
         new_engine = Engine.new
         expect(new_engine.win).to be_falsey
       end
 
-      it 'starts at turn 1' do
+      it "starts at turn 1" do
         engine = Engine.new
         expect(engine.turns).to eq(1)
       end
 
-      it 'has a color spectrum attribute of the possible colors' do
+      it "has a color spectrum attribute of the possible colors" do
         engine = Engine.new
         engine.color_spectrum.each do |el|
-          expect(el).to eq('red').or eq('green').or eq('yellow').or eq('blue').or eq('black').or eq('magenta').or eq('cyan').or eq('white')
+          expect(el).to eq("red").or eq("green").or eq("yellow").or eq("blue").or eq("black").or eq("magenta").or eq("cyan").or eq("white")
         end
       end
 
-      it 'defaults to player mode' do
+      it "defaults to player mode" do
         engine = Engine.new
         expect(engine.player_mode).to be_truthy
       end
 
-      it 'creats a Computer object' do
+      it "creats a Computer object" do
         engine = Engine.new
         expect(engine.computer).to be_a(Computer)
       end
     end
 
     context "#gameboard" do
-      it 'returns the colors of the solution' do
+      it "returns the colors of the solution" do
         engine = Engine.new
         expect(engine.gameboard.solution.colors).to be_truthy
       end
