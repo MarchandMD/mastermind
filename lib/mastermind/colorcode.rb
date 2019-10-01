@@ -11,15 +11,11 @@ module Mastermind
 
     private
 
-    def color_spectrum
-      %w[red green yellow blue black magenta cyan white]
-    end
-
     def make_code(arr)
       if arr.length == 4
         [arr[0], arr[1], arr[2], arr[3]]
       else
-        color_spectrum.shuffle.pop(4)
+        %w[red green yellow blue black magenta cyan white].shuffle.pop(4)
       end
     end
 
