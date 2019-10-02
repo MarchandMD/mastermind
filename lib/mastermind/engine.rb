@@ -74,7 +74,7 @@ module Mastermind
 
     def make_guesses
       while win == false && turns < 13
-        prompt_guess
+        prompt_for_guess
         guess = player_mode ? solicit_player_guess : solicit_computer_guess
         add_guess(guess)
         self.win = true if gameboard.guesses[12 - turns].colors == gameboard.solution.colors
@@ -82,10 +82,12 @@ module Mastermind
       end
     end
 
-    def prompt_guess
-      puts player_mode ? "What is your ##{turns} guess?" : "\nComputer, make your ##{turns} guess."
-      puts "Type four colors separated by spaces."
-      print "Your choices are: red, green, yellow, blue, black, magenta, cyan, and white.\n> "
+    def prompt_for_guess
+      if player_mode
+        puts "What is your ##{turns} guess?"
+        puts "Type four colors separated by spaces."
+        print "Your choices are: red, green, yellow, blue, black, magenta, cyan, and white.\n> "
+      end
     end
 
     def solicit_player_guess
