@@ -31,12 +31,6 @@ module Mastermind
         new_code.colors.each do |el|
           expect(el).to eq('red').or eq('green').or eq('yellow').or eq('blue').or eq('black').or eq('magenta').or eq('cyan').or eq('white')
         end
-
-        it "has elements that are colors from the color spectrum" do
-          new_code = Colorcode.new
-          new_code.colors.each do |el|
-            expect(el).to eq('red').or eq('green').or eq('yellow').or eq('blue').or eq('black').or eq('magenta').or eq('cyan').or eq('white')
-        end
       end
     end
 
