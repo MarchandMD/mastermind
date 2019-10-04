@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Mastermind
-  # a necessary comment
+  # This class is responsible for creating the secret code when the user is the code-breaker
   class Colorcode
     attr_accessor :colors
 
