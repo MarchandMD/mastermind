@@ -29,7 +29,7 @@ module Mastermind
         when 1
           4.times { computer_guess << color_spectrum[guess_set] }
 
-          @guess_set += 1
+          self.guess_set += 1
         when (2..8)
           4.times { computer_guess << color_spectrum[guess_set] }
 
