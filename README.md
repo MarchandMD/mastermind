@@ -1,6 +1,6 @@
 # Mastermind
 
-The majority of this Gem was created by Jonathan Yiv as an assignment for TheOdinProject.
+The majority of this Gem was created by [Jonathan Yiv](https://github.com/JonathanYiv) as an assignment for [TheOdinProject](https://www.theodinproject.com/home).
 
 I have added testing, some minor syntactical changes, and applied Rubocop suggestions...mostly.
 
