@@ -2,7 +2,7 @@
 
 # a necessary comment
 module Mastermind
-  # a necessary Class; HURR DURR I'M A COMMENT, HURR DURR
+  # AI for when the user is the code-maker
   class Computer
     attr_accessor :color_spectrum, :guess_set, :correct_colors
 
