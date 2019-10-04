@@ -135,5 +135,7 @@ module Mastermind
   end
 end
 
-game = Mastermind::Engine.new
-game.play
+
+# To play the game, simply uncomment the next two lines and then run this file in your terminal
+# game = Mastermind::Engine.new
+# game.play
