@@ -83,11 +83,11 @@ module Mastermind
     end
 
     def prompt_for_guess
-      if player_mode
-        puts "What is your ##{turns} guess?"
-        puts "Type four colors separated by spaces."
-        print "Your choices are: red, green, yellow, blue, black, magenta, cyan, and white.\n> "
-      end
+      return unless player_mode
+
+      puts "What is your ##{turns} guess?"
+      puts "Type four colors separated by spaces."
+      print "Your choices are: red, green, yellow, blue, black, magenta, cyan, and white.\n> "
     end
 
     def solicit_player_guess
@@ -99,20 +99,25 @@ module Mastermind
           redo
         end
 
-        if !color_spectrum.include?(guess[0]) || !color_spectrum.include?(guess[1]) || !color_spectrum.include?(guess[2]) || !color_spectrum.include?(guess[3])
+        # if !color_spectrum.include?(guess[0]) || !color_spectrum.include?(guess[1]) || !color_spectrum.include?(guess[2]) || !color_spectrum.include?(guess[3])
+        unless guess_test(guess)
           print "\nYou can only enter the colors specified! Try again:\n> "
           redo
         end
 
-        if player_mode == false
-          if guess.uniq.length != 4
-            print "\nYou must have different colors for the code. Try again:\n> "
-            redo
-          end
+        if player_mode == false && guess.uniq.length != 4
+          # if guess.uniq.length != 4
+          print "\nYou must have different colors for the code. Try again:\n> "
+          redo
+          # end
         end
 
         return guess
       end
+    end
+
+    def guess_test(arr)
+      arr.all? { |color| color_spectrum.include?(color) }
     end
 
     def solicit_computer_guess
@@ -135,6 +140,6 @@ module Mastermind
   end
 end
 
-# To play the game, simply uncomment the next two lines and then run this file in your terminal
+# To play the game, simply uncomment the next two lines (if they're comments) and run this file in your terminal
 game = Mastermind::Engine.new
 game.play
