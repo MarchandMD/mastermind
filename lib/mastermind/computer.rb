@@ -2,7 +2,7 @@
 
 # a necessary comment
 module Mastermind
-  # a necessary Class; HURR DURR I'M A COMMENT, HURR DURR
+  # AI for when the user is the code-maker
   class Computer
     attr_accessor :color_spectrum, :guess_set, :correct_colors
 
@@ -16,7 +16,7 @@ module Mastermind
     # returns a collection
     def guess(hints = nil, turn = nil)
       computer_guess = get_guess(hints, turn)
-      print "#{computer_guess[0]}, #{computer_guess[1]}, #{computer_guess[2]}, #{computer_guess[3]}"
+      puts "#{computer_guess[0]}, #{computer_guess[1]}, #{computer_guess[2]}, #{computer_guess[3]}"
       computer_guess
     end
 
