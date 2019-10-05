@@ -34,18 +34,14 @@ module Mastermind
 
       misplaced_correct_colors = guesses[row_index].colors.select { |color| solution.colors.include?(color) == true }.uniq.length - correct_colors
 
+      feedback(correct_colors, misplaced_correct_colors, row_index)
+    end
+
+    def feedback(green_count, red_count, row_index)
       feedback = []
-
-      correct_colors.times do
-        feedback << "green"
-      end
-
-      misplaced_correct_colors.times do
-        feedback << "red"
-      end
-
+      green_count.times { feedback << "green" }
+      red_count.times { feedback << "red" }
       feedback << "white" until feedback.length == 4
-
       hints[row_index] = Hint.new(feedback[0], feedback[1], feedback[2], feedback[3])
     end
 
