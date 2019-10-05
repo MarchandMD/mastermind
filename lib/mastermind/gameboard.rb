@@ -24,7 +24,9 @@ module Mastermind
       display
     end
 
-    # this method should probably be broken into more pieces
+    # this method should probably be broken into more pieces - Jonathan Yiv
+    # wrote and called #feedback
+
     def evaluate(row_index)
       correct_colors = 0
 
@@ -37,19 +39,21 @@ module Mastermind
       feedback(correct_colors, misplaced_correct_colors, row_index)
     end
 
+    def colorize(set, is_color_code)
+      colors = []
+      text = is_color_code ? "O" : "*"
+      set.colors.each { |color| colors.push(text.public_send(color.to_sym)) }
+      colors.join(" ")
+    end
+
+    private
+
     def feedback(green_count, red_count, row_index)
       feedback = []
       green_count.times { feedback << "green" }
       red_count.times { feedback << "red" }
       feedback << "white" until feedback.length == 4
       hints[row_index] = Hint.new(feedback[0], feedback[1], feedback[2], feedback[3])
-    end
-
-    def colorize(set, is_color_code)
-      colors = []
-      text = is_color_code ? "O" : "*"
-      set.colors.each { |color| colors.push(text.public_send(color.to_sym)) }
-      colors.join(" ")
     end
   end
 end
