@@ -28,25 +28,22 @@ module Mastermind
         case turn
         when 1
           4.times { computer_guess << color_spectrum[guess_set] }
-
           self.guess_set += 1
         when (2..8)
           4.times { computer_guess << color_spectrum[guess_set] }
-
           correct_colors << color_spectrum[guess_set - 1] if color_is_correct(hints, turn)
-
           self.guess_set += 1 if guess_set < 8
         when 9
           correct_colors << color_spectrum[guess_set - 1] if color_is_correct(hints, turn)
-          computer_guess = correct_colors
           self.correct_colors = correct_colors.shuffle
+          return correct_colors
         else
-          computer_guess = correct_colors
           self.correct_colors = correct_colors.shuffle
+          return correct_colors
         end
       else
-        computer_guess = correct_colors
         self.correct_colors = correct_colors.shuffle
+        return correct_colors
       end
       computer_guess
     end
