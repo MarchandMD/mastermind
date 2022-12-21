@@ -5,11 +5,6 @@ require "spec_helper"
 module Mastermind
   RSpec.describe "Computer" do
     context "#initialize" do
-      # it "sets the @color_spectrum instance variable" do
-      #   hal = Computer.new
-      #   expect(hal.color_spectrum).to eq(%w[red green yellow blue black magenta cyan white])
-      # end
-
       it "sets the @guess_set instance variable to 0 by default" do
         hal = Computer.new
         expect(hal.guess_set).to eq(0)
@@ -53,12 +48,6 @@ module Mastermind
           expect(el).to eq('red').or eq('green').or eq('yellow').or eq('blue').or eq('black').or eq('magneta').or eq('white')
         end
       end
-
-      # it 'does something' do
-      #   hint = Array.new(12, Hint.new("white", "white", "white", "white"))
-      #   hal = Computer.new(1)
-      #   expect { hal.guess(hint, 2) }.to output.to_stdout
-      # end
     end
 
     context "#get_guess" do

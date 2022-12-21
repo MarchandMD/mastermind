@@ -10,5 +10,8 @@ Metrics/MethodLength:
 Metrics/AbcSize:
   Max: 100
 
+Metrics/ClassLength:
+  Enabled: false
+
 StringLiterals:
   Enabled: False

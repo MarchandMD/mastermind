@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require_relative "gameboard.rb"
-require_relative "colorcode.rb"
-require_relative "hint.rb"
-require_relative "computer.rb"
+require_relative "gameboard"
+require_relative "colorcode"
+require_relative "hint"
+require_relative "computer"
 
 # responsible for the game engine
 module Mastermind
@@ -99,17 +99,17 @@ module Mastermind
           redo
         end
 
-        # if !color_spectrum.include?(guess[0]) || !color_spectrum.include?(guess[1]) || !color_spectrum.include?(guess[2]) || !color_spectrum.include?(guess[3])
+
         unless guess_test(guess)
           print "\nYou can only enter the colors specified! Try again:\n> "
           redo
         end
 
         if player_mode == false && guess.uniq.length != 4
-          # if guess.uniq.length != 4
+
           print "\nYou must have different colors for the code. Try again:\n> "
           redo
-          # end
+
         end
 
         return guess

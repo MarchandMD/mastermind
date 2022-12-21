@@ -7,8 +7,8 @@ module Mastermind
   # Your code goes here...
 end
 
-require_relative './mastermind/colorcode.rb'
-require_relative './mastermind/gameboard.rb'
-require_relative './mastermind/hint.rb'
-require_relative './mastermind/computer.rb'
-require_relative './mastermind/engine.rb'
+require_relative './mastermind/colorcode'
+require_relative './mastermind/gameboard'
+require_relative './mastermind/hint'
+require_relative './mastermind/computer'
+require_relative './mastermind/engine'
